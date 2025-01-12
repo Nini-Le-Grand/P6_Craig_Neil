@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PayMyBuddy Home</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/fragments/navbar.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/fragments/operations.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/fragments/info.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/home.css}">
+    <script th:src="@{/js/home.js}" defer></script>
+</head>
+<body>
+<div th:insert="~{fragments/navbar :: navbar(currentPage='/home')}"></div>
+<div th:replace="~{fragments/info :: info(success=${success}, message=${message})}"></div>
+
+<div class="user">
+    <div class="profile">
+        <h2 th:text="${username}" class="username"></h2>
+        <div class="profile-balance">
+            <p class="balance-title">Mon solde</p>
+            <p class="balance-amount"><span th:text="${balance}"></span> €</p>
+        </div>
+    </div>
+
+    <div class="balance">
+        <h2>Effectuer un virement</h2>
+        <div class="balance-form">
+            <form id="credit" th:action="@{/home/credit}" th:object="${balanceDto}" class="credit" method="post">
+                <label for="creditAmount">Crédit</label>
+                <div>
+                    <input th:field="*{amount}" type="number" aria-label="créditer" id="creditAmount"
+                           class="amount-input"
+                           placeholder="0,00" min="0.00" step="0.01"
+                           onchange="formatAmountValue(this)" oninput="checkEmptyValue(this); toggleButton(this)"/>
+                </div>
+                <button type="submit" id="credit-btn" class="amount-btn" disabled>Alimenter</button>
+            </form>
+
+            <form id="withdraw" th:action="@{/home/withdraw}" th:object="${balanceDto}" method="post">
+                <label for="withdrawAmount">Retrait</label>
+                <div>
+                    <input th:field="*{amount}" type="number" aria-label="retirer" id="withdrawAmount"
+                           class="amount-input"
+                           placeholder="0,00" min="0.00" step="0.01"
+                           onchange="formatAmountValue(this)" oninput="checkEmptyValue(this); toggleButton(this)"/>
+                </div>
+                <button type="submit" id="withdraw-btn" class="amount-btn" disabled>Retirer</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div th:insert="~{fragments/operations :: operations(title='Opérations', operations=${operations})}"></div>
+</body>

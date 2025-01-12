@@ -1,0 +1,173 @@
+body {
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+}
+
+a {
+    font-family: "Inter", sans-serif;
+    text-decoration: none;
+    color: black;
+}
+
+.container {
+    width: 580px;
+    margin: auto;
+
+}
+
+.message-wrapper {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.success-message {
+    width: 100%;
+    font-size: 18px;
+    background: #13d09e;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+.error-message {
+    width: 100%;
+    font-size: 18px;
+    background: #ff4751;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+.info-logo {
+    font-size: 14px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    color: white;
+    border: 2px solid white;
+    border-radius: 9999px;
+    text-align: center;
+    line-height: 18px;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 580px;
+    margin-top: 20px;
+}
+
+.label-container {
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group {
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.form-group input{
+    font-size: 20px;
+}
+
+.form-group input{
+    flex: 1;
+    margin-right: 20px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid #E0E0E0;
+    outline: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.form-group input:focus {
+    outline: 2px solid blue;
+}
+
+.form-group input::placeholder {
+    color: #ccc;
+}
+
+.submit-btn {
+    font-size: 18px;
+    background: #F69F1D;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+}
+
+.submit-btn:disabled {
+    cursor: not-allowed;
+    background: #ccc;
+}
+
+h1 {
+    margin-top: 40px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.my-relations {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.my-relations-item {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 1px 1px 4px #d8d8d8;
+    margin-bottom: 10px;
+}
+
+.username-container {
+    flex: 2;
+    font-weight: bold;
+    text-align: left;
+}
+
+.email-container {
+    flex: 3;
+    font-weight: bold;
+    text-align: left;
+}
+
+.picture-container {
+    margin-right: 26px;
+}
+
+.picture-container img {
+    display: block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: auto;
+    border: 1px solid white;
+    background: white
+}

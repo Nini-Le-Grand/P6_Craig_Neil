@@ -1,0 +1,53 @@
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 20px;
+}
+
+.logo {
+    font-family: "Inter", sans-serif;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    background: #F69F1D;
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+
+.navbar a {
+    font-family: "Inter", sans-serif;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.link-item {
+    margin-left: 20px;
+}
+
+.link-item a {
+    padding: 8px 16px;
+}
+
+.link-item a:hover {
+    background-color: #207FEE;
+    color: white;
+    border-radius: 4px;
+}
+
+.active a {
+    color: #207FEE!important;
+}
+
+.active a:hover {
+    background-color: white!important;
+}

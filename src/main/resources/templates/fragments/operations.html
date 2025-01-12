@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <title>PayMyBuddy Operations</title>
+</head>
+<body>
+<div th:fragment="operations(title, operations)">
+    <div class="operations">
+        <h2 th:text="${title}"></h2>
+        <ul class="operation-list">
+            <li class="operation-header">
+                <div class="operation-relation">Relation</div>
+                <div class="operation-description">Description</div>
+                <div class="operation-amount">Montant</div>
+            </li>
+            <li th:each="operation : ${operations}" class="operation-item">
+                <div class="operation-relation">
+                    <span th:text="${operation.receiver.username}"></span>
+                </div>
+                <div class="operation-description">
+                    <span th:text="${operation.description}"></span>
+                </div>
+                <div class="operation-amount">
+                    <span th:text="${operation.amount}"></span><span> €</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

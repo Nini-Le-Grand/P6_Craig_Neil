@@ -1,0 +1,32 @@
+.message-wrapper {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    width: 860px;
+}
+
+.success-message {
+    width: 100%;
+    font-size: 18px;
+    background: #13d09e;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+.error-message {
+    width: 100%;
+    font-size: 18px;
+    background: #ff4751;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 0;
+    font-weight: bold;
+    text-align: center;
+}

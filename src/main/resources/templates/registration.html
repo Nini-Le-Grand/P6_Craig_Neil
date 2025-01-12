@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PayMyBuddy Registration</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <link rel="stylesheet" th:href="@{/styles/access.css}">
+    <script th:src="@{/js/access.js}" defer></script>
+</head>
+
+<body>
+<div class="container">
+    <h1>Pay My Buddy</h1>
+
+    <form id="registrationForm" th:action="@{/registration}" th:object="${registrationDto}" method="post">
+        <div class="message-wrapper">
+            <div th:if="${success == false}" class="error-message">
+                <span th:text="${message}"></span>
+            </div>
+            <div th:if="${success}" class="info-message">
+                <span th:text="${message}"></span>
+            </div>
+        </div>
+
+        <input type="text" aria-label="Username" id="username" th:field="*{username}" name="username"
+               placeholder="Username" autocomplete="off" required oninput="handleSubmitButton()"/>
+        <input type="email" aria-label="Email" id="email" th:field="*{email}" name="email" placeholder="Mail"
+               autocomplete="off" required oninput="handleSubmitButton()"/>
+        <input type="password" aria-label="Password" id="password" name="password" placeholder="Mot de passe"
+               autocomplete="off" required oninput="handleSubmitButton()"/>
+        <input type="password" aria-label="Password confirmation" id="confirmPassword" name="confirmPassword"
+               placeholder="Confirmation mot de passe" autocomplete="off" required oninput="handleSubmitButton()"/>
+        <input type="submit" aria-label="Register" value="S'inscrire" id="submit-btn" class="submit-btn" disabled>
+    </form>
+
+    <p class="link">
+        <a href="/login">Se connecter</a>
+    </p>
+</div>
+</body>
+</html>

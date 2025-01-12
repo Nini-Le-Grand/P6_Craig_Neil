@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PayMyBuddy Profile</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/fragments/navbar.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/fragments/operations.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/fragments/info.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/profile.css}">
+    <script th:src="@{/js/profile.js}" defer></script>
+</head>
+<body>
+<div th:insert="~{fragments/navbar :: navbar(currentPage='/profile')}"></div>
+
+<div class="container">
+    <div th:replace="~{fragments/info :: info(success=${success}, message=${message})}"></div>
+
+    <form th:action="@{/profile}" th:object="${updateProfileDto}" method="post" id="profileForm" autocomplete="off">
+        <div class="form-input">
+            <div>
+                <label for="username">Username</label>
+                <input
+                        type="text"
+                        class="text-input"
+                        th:field="*{username}"
+                        id="username"
+                        name="username"
+                        aria-label="username"
+                        th:placeholder="${username}"
+                        oninput="handleProfileInput()"
+                />
+            </div>
+            <div>
+                <label for="email">Mail</label>
+                <input
+                        type="email"
+                        class="text-input"
+                        th:field="*{email}"
+                        id="email"
+                        name="email"
+                        aria-label="email"
+                        th:placeholder="${email}"
+                        oninput="handleProfileInput()"
+                />
+            </div>
+        </div>
+        <div class="form-btn">
+            <button id="profile-btn" type="submit" class="submit-btn" disabled>Modifier</button>
+        </div>
+    </form>
+
+    <form th:action="@{/profile/password}" th:object="${updatePasswordDto}" method="post" id="passwordForm"
+          autocomplete="off">
+        <div class="form-input">
+            <div>
+                <label for="oldPassword">Ancien mot de passe</label>
+                <input
+                        type="password"
+                        class="text-input"
+                        th:field="*{oldPassword}"
+                        id="oldPassword"
+                        name="oldPassword"
+                        aria-label="old password"
+                        placeholder="Ancien mot de passe"
+                        oninput="handlePasswordInput()"
+                />
+            </div>
+            <div>
+                <label for="newPassword">Nouveau mot de passe</label>
+                <input
+                        type="password"
+                        class="text-input"
+                        th:field="*{newPassword}"
+                        id="newPassword"
+                        name="newPassword"
+                        aria-label="new password"
+                        placeholder="Nouveau mot de passe"
+                        oninput="handlePasswordInput()"
+                />
+            </div>
+            <div>
+                <label for="confirmPassword">Confirmer mot de passe</label>
+                <input
+                        type="password"
+                        class="text-input"
+                        th:field="*{confirmPassword}"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        aria-label="confirm password"
+                        placeholder="Confirmer mot de passe"
+                        oninput="handlePasswordInput()"
+                />
+            </div>
+        </div>
+        <div class="form-btn">
+            <button id="password-btn" type="submit" class="submit-btn" disabled>Modifier</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

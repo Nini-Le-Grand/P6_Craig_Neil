@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PayMyBuddy Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <link rel="stylesheet" th:href="@{/styles/access.css}">
+    <script th:src="@{/js/access.js}" defer></script>
+</head>
+
+<body>
+<div class="container">
+    <h1>Pay My Buddy</h1>
+
+    <form method="post" th:action="@{/login}" id="loginForm">
+        <div class="message-wrapper">
+            <div th:if="${param.error}" class="error-message">
+                <span class="info-logo">!</span>
+                <span>Utilisateur ou Mot de passe incorrect.</span>
+            </div>
+            <div th:if="${param.logout}" class="info-message">
+                <span class="info-logo">!</span>
+                <span>Vous avez été déconnecté.</span>
+            </div>
+        </div>
+
+        <input type="email" aria-label="Email" id="email" name="email" placeholder="Mail" autocomplete="off" required oninput="handleSubmitButton()"/>
+        <input type="password" aria-label="Password" id="password" name="password" placeholder="Mot de passe" required
+               oninput="handleSubmitButton()"/>
+        <input type="submit" aria-label="login" value="Se connecter" id="submit-btn" class="submit-btn" disabled>
+    </form>
+
+    <p class="link">
+        <a href="/registration">S'inscrire</a>
+    </p>
+</div>
+</body>
+</html>

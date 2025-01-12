@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <title>PayMyBuddy Info</title>
+</head>
+<body>
+<div th:fragment="info(success, message)">
+    <div class="info-container">
+        <div class="message-wrapper">
+            <div th:if="${success == false}" class="error-message">
+                <span th:text="${message}"></span>
+            </div>
+            <div th:if="${success == true}" class="success-message">
+                <span th:text="${message}"></span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

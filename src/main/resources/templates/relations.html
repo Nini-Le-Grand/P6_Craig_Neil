@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PayMyBuddy Relations</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/fragments/navbar.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/fragments/info.css}">
+    <link rel="stylesheet" th:href="@{/styles/relations.css}">
+    <script th:src="@{/js/relations.js}" defer></script>
+</head>
+<body>
+<div th:insert="~{fragments/navbar :: navbar(currentPage='/relations')}"></div>
+<div class="container">
+    <div th:replace="~{fragments/info :: info(success=${success}, message=${message})}"></div>
+
+    <form th:action="@{/relations}" th:object="${relationDto}" method="post" id="relations" autocomplete="off">
+        <div class="label-container">
+            <label for="email">Chercher une relation</label>
+        </div>
+        <div class="form-group">
+            <input
+                    type="email"
+                    class="text-input"
+                    id="email"
+                    name="email"
+                    aria-label="Relation email"
+                    placeholder="Saisir une adresse mail"
+                    oninput="handleInput(this)"
+                    required
+            />
+            <button id="relations-btn" type="submit" class="submit-btn" disabled>Ajouter</button>
+        </div>
+    </form>
+
+    <h1>Mes relations</h1>
+    <ul class="my-relations">
+        <li th:each="relation : ${relations}" class="my-relations-item">
+            <div class="username-container">
+                <span th:text="${relation.username}"></span>
+            </div>
+            <div class="email-container">
+                <span th:text="${relation.email}"></span>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

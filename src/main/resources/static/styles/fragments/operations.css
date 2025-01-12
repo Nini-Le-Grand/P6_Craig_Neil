@@ -1,0 +1,50 @@
+.operations {
+    box-sizing: border-box;
+    width: 860px;
+    margin: auto;
+    margin-top: 50px;
+    border: 1px solid #E0E0E0;
+    padding: 20px 24px;
+}
+
+.operations > h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.operation-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.operation-header {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.operation-relation {
+    flex: 5;
+}
+
+.operation-description {
+    flex: 5;
+}
+
+.operation-amount {
+    flex: 2;
+    text-align: right;
+}
+
+.operation-item {
+    font-size: 20px;
+    display: flex;
+    width: 100%;
+    border-top: 1px solid #E0E0E0;
+    padding: 12px 0;
+}

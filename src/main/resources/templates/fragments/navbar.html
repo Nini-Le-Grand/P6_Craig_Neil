@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <title>PayMyBuddy NavBar</title>
+</head>
+<body>
+<div th:fragment="navbar(currentPage)">
+    <nav class="navbar">
+        <div class="logo">
+            Pay My Buddy
+        </div>
+        <ul class="nav-links">
+            <li class="link-item" th:classappend="${currentPage == '/home'} ? 'active'">
+                <a th:href="@{/home}">Accueil</a>
+            </li>
+            <li class="link-item" th:classappend="${currentPage == '/transaction'} ? 'active'">
+                <a th:href="@{/transaction}">Transférer</a>
+            </li>
+            <li class="link-item" th:classappend="${currentPage == '/profile'} ? 'active'">
+                <a th:href="@{/profile}">Profil</a>
+            </li>
+            <li class="link-item" th:classappend="${currentPage == '/relations'} ? 'active'">
+                <a th:href="@{/relations}">Relations</a>
+            </li>
+            <li class="link-item">
+                <a th:href="@{/logout}">Se déconnecter</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html>
