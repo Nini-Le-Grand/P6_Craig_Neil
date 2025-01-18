@@ -10,6 +10,35 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.*;
 
+
+/**
+ * Represents a user in the PayMyBuddy application.
+ *
+ * <p>This entity maps to the {@code users} table in the database and contains fields
+ * related to user authentication, account management, and auditing.</p>
+ *
+ * <h2>Fields:</h2>
+ * <ul>
+ *   <li>{@code id}: Unique identifier for the user.</li>
+ *   <li>{@code username}: Unique username of the user.</li>
+ *   <li>{@code email}: Unique email address of the user, validated for proper format.</li>
+ *   <li>{@code password}: Encrypted password for user authentication.</li>
+ *   <li>{@code balance}: Current account balance of the user.</li>
+ *   <li>{@code created_at}: Timestamp when the user account was created (non-updatable).</li>
+ *   <li>{@code updated_at}: Timestamp when the user account was last updated.</li>
+ *   <li>{@code accountNonExpired}: Indicates if the account is expired.</li>
+ *   <li>{@code accountNonLocked}: Indicates if the account is locked.</li>
+ *   <li>{@code credentialsNonExpired}: Indicates if the credentials are expired.</li>
+ *   <li>{@code enabled}: Indicates if the account is active.</li>
+ *   <li>{@code roles}: A collection of roles assigned to the user for authorization.</li>
+ * </ul>
+ *
+ * <h2>Lifecycle Callbacks:</h2>
+ * <ul>
+ *   <li>{@code onCreate()}: Initializes default values when the user is first persisted.</li>
+ *   <li>{@code onUpdate()}: Updates the {@code updated_at} field whenever the user entity is modified.</li>
+ * </ul>
+ */
 @Entity
 @Table(name = "users")
 @Data

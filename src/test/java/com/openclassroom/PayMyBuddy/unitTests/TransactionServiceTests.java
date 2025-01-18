@@ -90,7 +90,7 @@ public class TransactionServiceTests {
         when(validators.emailExists(anyString())).thenReturn(true);
         when(validators.relationExists(any(AppUser.class), any(AppUser.class))).thenReturn(true);
 
-        transactionService.processTransaction(transactionDto, bindingResult);
+        transactionService.addTransaction(transactionDto, bindingResult);
 
         verify(transactionRepository, Mockito.times(1)).save(Mockito.any(Transaction.class));
         verify(appUserService, times(1)).updateBalance(appUser, BigDecimal.valueOf(20)
@@ -105,7 +105,7 @@ public class TransactionServiceTests {
         when(bindingResult.hasErrors()).thenReturn(true);
 
         TransactionException exception = assertThrows(TransactionException.class, () -> {
-            transactionService.processTransaction(transactionDto, bindingResult);
+            transactionService.addTransaction(transactionDto, bindingResult);
         });
 
         assertEquals("Le formulaire contient une erreur", exception.getMessage());
@@ -117,7 +117,7 @@ public class TransactionServiceTests {
         when(validators.emailExists(anyString())).thenReturn(false);
 
         TransactionException exception = assertThrows(TransactionException.class, () -> {
-            transactionService.processTransaction(transactionDto, bindingResult);
+            transactionService.addTransaction(transactionDto, bindingResult);
         });
 
         assertEquals("L'utilisateur n'existe pas", exception.getMessage());
@@ -130,7 +130,7 @@ public class TransactionServiceTests {
         when(validators.isBalanceNegative(any())).thenReturn(true);
 
         TransactionException exception = assertThrows(TransactionException.class, () -> {
-            transactionService.processTransaction(transactionDto, bindingResult);
+            transactionService.addTransaction(transactionDto, bindingResult);
         });
 
         assertEquals("Votre solde ne peut pas être négatif", exception.getMessage());
@@ -146,7 +146,7 @@ public class TransactionServiceTests {
         when(validators.relationExists(any(AppUser.class), any(AppUser.class))).thenReturn(false);
 
         TransactionException exception = assertThrows(TransactionException.class, () -> {
-            transactionService.processTransaction(transactionDto, bindingResult);
+            transactionService.addTransaction(transactionDto, bindingResult);
         });
 
         assertEquals("La relation n'existe pas", exception.getMessage());
@@ -166,7 +166,7 @@ public class TransactionServiceTests {
                 .save(any());
 
         TransactionException exception = assertThrows(TransactionException.class, () -> {
-            transactionService.processTransaction(transactionDto, bindingResult);
+            transactionService.addTransaction(transactionDto, bindingResult);
         });
 
         assertEquals("Une erreur est survenue lors de la transaction", exception.getMessage());

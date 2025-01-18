@@ -8,6 +8,9 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
+/**
+ * Data Transfer Object (DTO) for handling transaction details.
+ */
 @Data
 public class TransactionDto {
     @NotEmpty
